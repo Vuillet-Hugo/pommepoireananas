@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-bool nombrePremier(int number) {
+bool nombrePremier(int number) { //fonction verif nbPremier
   if (number <= 1) {
     return false;
   }
@@ -43,9 +43,9 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 1;
-  List<int> listFruit = []; 
+  List<int> listFruit = []; // la liste de fruit
 
-  String typeDeNombre(int valeurFruit) {
+  String typeDeNombre(int valeurFruit) { //determine si nb premier, pair ou impaire
     if (nombrePremier(valeurFruit)) {
       return 'nombre premier';
     } else if (valeurFruit.isEven) {
@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {
-      listFruit
+      listFruit // pour incrémenter la longueur de la liste en fonction du counter
           .add(_counter);
       _counter++;
     });
@@ -75,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
             style: const TextStyle(color: Colors.white)),
       ),
       body: ListView.builder(
-        itemCount: listFruit
+        itemCount: listFruit // le nombre d'items en fonction de la longueur de la liste
             .length,
         itemBuilder: (BuildContext context, int index) {
           final valeurFruit = listFruit[index];
@@ -83,9 +83,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
           final premierPairImpair = nombrePremier(valeurFruit);
 
-          final backgroundColor = siPair ? Colors.indigo : Colors.cyan;
+          final backgroundColor = siPair ? Colors.indigo : Colors.cyan; // bgc en fonction  de pair ou impair
 
-          final imageVerif = premierPairImpair
+          final imageVerif = premierPairImpair // img affiché en fonction du type de nb
               ? Image.asset(
                   'images/ananas.png',
                   width: 40,
